@@ -16,6 +16,7 @@ public class BinarySearchTree {
 
     protected void buildTree(int[] arr){
         root = null;
+        System.gc();
         size = 0;
         Arrays.sort(arr);
         buildFromSortedArray(arr, 0, arr.length - 1);
@@ -46,6 +47,11 @@ public class BinarySearchTree {
         return Math.max(getHeight(current.getLeftNode()), getHeight(current.getRightNode())) + 1;
     }
 
+    /**
+     * Insert a value into BST
+     * @param data - value need to insert
+     * @return - {@code true} if insert success
+     */
     public boolean insert(int data){
         Node focusNode = root;
         if(focusNode == null){
@@ -76,7 +82,12 @@ public class BinarySearchTree {
         }
     }
 
-    public boolean find(int data){
+    /**
+     * Check if a value is current in BST
+     * @param data - value need to check
+     * @return - true if value in BST
+     */
+    public boolean contains(int data){
         if(root == null) return false;
 
         Node focusNode = root;
@@ -94,6 +105,11 @@ public class BinarySearchTree {
         return false;
     }
 
+    /**
+     * Delete a value in BST
+     * @param value - value to delete
+     * @return - true if deleted
+     */
     public boolean delete(int value){
         int oldSize = size;
         root = delete(root, value);
@@ -124,23 +140,27 @@ public class BinarySearchTree {
         return focusNode;
     }
 
-    public int[] inOrderTravesal(){
+    /**
+     * Get all value in tree in order
+     * @return
+     */
+    public int[] inOrderTraversal(){
         if(root == null) return null;
         int[] res = new int[size];
-        inOrderTravesal(root, 0, res);
+        inOrderTraversal(root, 0, res);
         return res;
     }
 
-    protected int inOrderTravesal(Node current, int i, int[] arr){
+    protected int inOrderTraversal(Node current, int i, int[] arr){
         if(current == null) return i;
 
-        i = inOrderTravesal(current.getLeftNode(), i, arr);
+        i = inOrderTraversal(current.getLeftNode(), i, arr);
         arr[i] = current.getData();
         i++;
-        return inOrderTravesal(current.getRightNode(), i, arr);
+        return inOrderTraversal(current.getRightNode(), i, arr);
     }
 
     public void balancing(){
-        buildTree(inOrderTravesal());
+        buildTree(inOrderTraversal());
     }
 }
