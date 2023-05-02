@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<students>
+    <student>
+        <address>Rhine Lab</address>
+        <age>21</age>
+        <email>mumu@rhodes.com</email>
+        <fullName>Muelsyse</fullName>
+        <phoneNumber>678023</phoneNumber>
+        <id>1</id>
+    </student>
+    <student>
+        <address>Rhodes Island</address>
+        <age>14</age>
+        <email>suzuran@rhodes.com</email>
+        <fullName>Suzuran</fullName>
+        <phoneNumber>3424564</phoneNumber>
+        <id>2</id>
+    </student>
+    <student>
+        <address>Outside Earth</address>
+        <age>18</age>
+        <email>comet@hololive.com</email>
+        <fullName>Suisei</fullName>
+        <phoneNumber>90872345</phoneNumber>
+        <id>3</id>
+    </student>
+    <student>
+        <address>Sargon</address>
+        <age>22</age>
+        <email>gavial@rhodes.com</email>
+        <fullName>Gavial</fullName>
+        <phoneNumber>8743534</phoneNumber>
+        <id>4</id>
+    </student>
+    <student>
+        <address>Runeterra</address>
+        <age>50</age>
+        <email>thresh@rito.com</email>
+        <fullName>Thresh</fullName>
+        <phoneNumber>2734589</phoneNumber>
+        <id>5</id>
+    </student>
+    <student>
+        <address>Ionia</address>
+        <age>32</age>
+        <email>yasuo@rito.com</email>
+        <fullName>Yasuo</fullName>
+        <phoneNumber>4378053</phoneNumber>
+        <id>6</id>
+    </student>
+</students>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<teachers>
+    <teacher>
+        <address>Sa dec</address>
+        <age>33</age>
+        <email>baroibeo@nimo.com</email>
+        <fullName>Phan Tan trung</fullName>
+        <phoneNumber>333333</phoneNumber>
+        <id>1</id>
+        <bankInfo>Momo 333</bankInfo>
+        <salary>70000000</salary>
+        <yearExp>8</yearExp>
+    </teacher>
+    <teacher>
+        <address>Kazimierz</address>
+        <age>25</age>
+        <email>nearl@rhodes.com</email>
+        <fullName>Marganet</fullName>
+        <phoneNumber>807934</phoneNumber>
+        <id>2</id>
+        <salary>30000000</salary>
+        <yearExp>0</yearExp>
+    </teacher>
+    <teacher>
+        <address>Somewhere</address>
+        <age>18</age>
+        <email>someone@example.com</email>
+        <fullName>teacher</fullName>
+        <phoneNumber>1254673</phoneNumber>
+        <id>3</id>
+        <salary>12000000</salary>
+        <yearExp>0</yearExp>
+    </teacher>
+</teachers>

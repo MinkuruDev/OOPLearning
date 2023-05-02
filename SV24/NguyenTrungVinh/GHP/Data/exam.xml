@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<exams>
+    <exam>
+        <examTime>2023-05-15T08:00</examTime>
+        <certificateName>VStep</certificateName>
+        <durationInMinutes>210</durationInMinutes>
+        <examName>VStep 15/5</examName>
+        <price>2000000</price>
+    </exam>
+    <exam>
+        <examTime>2023-05-05T14:00</examTime>
+        <certificateName>TOEIC</certificateName>
+        <durationInMinutes>150</durationInMinutes>
+        <examName>TOEIC 5/5</examName>
+        <price>1200000</price>
+    </exam>
+</exams>

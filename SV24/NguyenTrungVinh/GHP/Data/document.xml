@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<documents>
+    <document>
+        <author>Someone</author>
+        <pageNumber>314</pageNumber>
+        <price>450000</price>
+        <publishYear>2022</publishYear>
+        <title>Chinh phuc IELTS</title>
+    </document>
+    <document>
+        <author>Pozemka</author>
+        <pageNumber>201</pageNumber>
+        <price>200000</price>
+        <publishYear>2023</publishYear>
+        <title>Vstep B2</title>
+    </document>
+    <document>
+        <author>Silver Ash</author>
+        <pageNumber>150</pageNumber>
+        <price>50000</price>
+        <publishYear>2019</publishYear>
+        <title>Solution</title>
+    </document>
+</documents>
