@@ -1,13 +1,14 @@
 package SV24.NguyenTrungVinh.GHP.UI;
 
-import SV24.NguyenTrungVinh.GHP.Data.DataViewer;
-import SV24.NguyenTrungVinh.GHP.XmlElement.*;
+import SV24.NguyenTrungVinh.GHP.Data.DataWriter;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class HomeFrame extends JFrame{
     private JPanel leftPanel, rightPanel;
@@ -26,6 +27,14 @@ public class HomeFrame extends JFrame{
         this.setResizable(false);
         this.setComponent();
         this.setVisible(true);
+
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                DataWriter.writeAll();
+                super.windowClosing(e);
+            }
+        });
     }
 
     public void setLeftPanelContent(JPanel content){
@@ -52,7 +61,6 @@ public class HomeFrame extends JFrame{
         this.add(new JScrollPane(mainTable), BorderLayout.CENTER);
         this.add(rightPanel, BorderLayout.EAST);
 
-        mainTable.setAutoCreateRowSorter(true);
         this.setLeftPanelContent(studentForm.getStudentInfoPanel());
         this.setRightPanelContent(studentForm.getStudentSearchPanel());
 
@@ -91,6 +99,22 @@ public class HomeFrame extends JFrame{
                     case Course -> courseForm.onTableCellSelected(row, col);
                     case Exam -> examForm.onTableCellSelected(row, col);
                     case Document -> documentForm.onTableCellSelected(row, col);
+                }
+            }
+        });
+
+        mainTable.getTableHeader().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Point point = e.getPoint();
+                int col = mainTable.columnAtPoint(point);
+
+                switch (currentPanel){
+                    case Student -> studentForm.sortByColumn(col);
+                    case Teacher -> teacherForm.sortByColumn(col);
+                    case Course -> courseForm.sortByColumn(col);
+                    case Exam -> examForm.sortByColumn(col);
+                    case Document -> documentForm.sortByColumn(col);
                 }
             }
         });

@@ -1,16 +1,11 @@
 package SV24.NguyenTrungVinh.GHP.Data;
 
-import java.io.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.TreeSet;
+import SV24.NguyenTrungVinh.GHP.XmlElement.*;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-
-import SV24.NguyenTrungVinh.GHP.Obj.*;
-import SV24.NguyenTrungVinh.GHP.XmlElement.*;
+import java.io.*;
 
 public class DataWriter {
     public static void writeAll(){

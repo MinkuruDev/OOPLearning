@@ -72,4 +72,50 @@
         <studentIDs>13</studentIDs>
         <teacherID>2</teacherID>
     </course>
+    <course>
+        <beginDate>2023-05-30</beginDate>
+        <endDate>2023-07-30</endDate>
+        <courseName>TOEIC in 60 days</courseName>
+        <numberOfLecture>0</numberOfLecture>
+        <price>1500000</price>
+        <schedule>
+            <day>Monday</day>
+            <time>Morning</time>
+        </schedule>
+        <schedule>
+            <day>Tuesday</day>
+            <time>Morning</time>
+        </schedule>
+        <schedule>
+            <day>Wednesday</day>
+            <time>Afternoon</time>
+        </schedule>
+        <schedule>
+            <day>Thursday</day>
+            <time>Afternoon</time>
+        </schedule>
+        <schedule>
+            <day>Friday</day>
+            <time>Morning</time>
+        </schedule>
+        <schedule>
+            <day>Saturday</day>
+            <time>Afternoon</time>
+        </schedule>
+        <studentIDs>1</studentIDs>
+        <studentIDs>2</studentIDs>
+        <studentIDs>3</studentIDs>
+        <studentIDs>4</studentIDs>
+        <studentIDs>5</studentIDs>
+        <studentIDs>6</studentIDs>
+        <studentIDs>7</studentIDs>
+        <studentIDs>8</studentIDs>
+        <studentIDs>10</studentIDs>
+        <studentIDs>12</studentIDs>
+        <studentIDs>14</studentIDs>
+        <studentIDs>16</studentIDs>
+        <studentIDs>18</studentIDs>
+        <studentIDs>20</studentIDs>
+        <teacherID>2</teacherID>
+    </course>
 </courses>

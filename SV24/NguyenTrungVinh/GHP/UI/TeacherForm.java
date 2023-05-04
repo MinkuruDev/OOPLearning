@@ -4,11 +4,14 @@ import SV24.NguyenTrungVinh.GHP.Data.DataChecker;
 import SV24.NguyenTrungVinh.GHP.Data.DataViewer;
 import SV24.NguyenTrungVinh.GHP.Data.DataWriter;
 import SV24.NguyenTrungVinh.GHP.Obj.FunctionalInterfaces;
+import SV24.NguyenTrungVinh.GHP.Obj.People;
+import SV24.NguyenTrungVinh.GHP.Obj.Student;
 import SV24.NguyenTrungVinh.GHP.Obj.Teacher;
 import SV24.NguyenTrungVinh.GHP.XmlElement.Teachers;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class TeacherForm {
     private JPanel teacherInfoPanel;
@@ -95,6 +98,22 @@ public class TeacherForm {
             clearSearchResultButton.setEnabled(false);
         });
 
+    }
+
+    public void sortByColumn(int col){
+        Comparator<Teacher> comparator = null;
+        // "ID", "Full Name", "Age", "Phone", "Email", "Address", "Salary"
+        switch (DataViewer.teacherProps[col]){
+            case "ID" -> comparator = Comparator.comparingInt(Teacher::getId);
+            case "Full Name" -> comparator = Comparator.comparing(Teacher::getFullName);
+            case "Age" -> comparator = Comparator.comparingInt(Teacher::getAge);
+            case "Phone" -> comparator = Comparator.comparing(Teacher::getPhoneNumber);
+            case "Email" -> comparator = Comparator.comparing(Teacher::getEmail);
+            case "Address" -> comparator = Comparator.comparing(Teacher::getAddress);
+            case "Salary" -> comparator = Comparator.comparingLong(Teacher::getSalary);
+        };
+        data.sort(comparator);
+        update();
     }
 
     private boolean checkFieldAlert(){

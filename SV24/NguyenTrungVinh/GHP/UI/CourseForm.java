@@ -5,6 +5,7 @@ import SV24.NguyenTrungVinh.GHP.Data.DataViewer;
 import SV24.NguyenTrungVinh.GHP.Data.DataWriter;
 import SV24.NguyenTrungVinh.GHP.Obj.Course;
 import SV24.NguyenTrungVinh.GHP.Obj.FunctionalInterfaces;
+import SV24.NguyenTrungVinh.GHP.Obj.Teacher;
 import SV24.NguyenTrungVinh.GHP.Obj.TimesInWeek;
 import SV24.NguyenTrungVinh.GHP.XmlElement.Courses;
 
@@ -124,6 +125,26 @@ public class CourseForm {
                     upperStCount, upperStart, upperFinish, upperPrice, teacherField);
             clearSearchResultButton.setEnabled(false);
         });
+    }
+
+    public void sortByColumn(int col){
+        Comparator<Course> comparator = null;
+        // "Course Name", "Start Date", "Finish Date", "Teacher Name", "Student Count", "Schedule", "Price"
+        switch (DataViewer.courseProps[col]){
+            case "Course Name" -> comparator = Comparator.comparing(Course::getCourseName);
+            case "Start Date" -> comparator = Comparator.comparing(Course::getStartDate);
+            case "Finish Date" -> comparator = Comparator.comparing(Course::getFinishDate);
+            case "Teacher Name" -> comparator = Comparator.comparingInt(Course::getTeacherID);
+            case "Student Count" -> comparator = (o1, o2) -> {
+                int s1 = o1.getStudentIDs().size();
+                int s2 = o2.getStudentIDs().size();
+                return s1 - s2;
+            };
+            case "Price" -> comparator = Comparator.comparingLong(Course::getPrice);
+            case "Schedule" -> comparator = (o1, o2) -> 0;
+        };
+        data.sort(comparator);
+        update();
     }
 
     private boolean checkFieldAlert(){

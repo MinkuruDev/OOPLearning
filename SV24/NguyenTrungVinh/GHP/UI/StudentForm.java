@@ -2,11 +2,13 @@ package SV24.NguyenTrungVinh.GHP.UI;
 
 import SV24.NguyenTrungVinh.GHP.Data.*;
 import SV24.NguyenTrungVinh.GHP.Obj.FunctionalInterfaces;
+import SV24.NguyenTrungVinh.GHP.Obj.People;
 import SV24.NguyenTrungVinh.GHP.Obj.Student;
 import SV24.NguyenTrungVinh.GHP.XmlElement.Students;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class StudentForm {
     private JTextField idField;
@@ -86,6 +88,21 @@ public class StudentForm {
             clearSearchResultButton.setEnabled(false);
         });
 
+    }
+
+    public void sortByColumn(int col){
+        Comparator<Student> comparator = null;
+        // "ID", "Full Name", "Age", "Phone", "Email", "Address"
+        switch (DataViewer.studentProps[col]){
+            case "ID" -> comparator = Comparator.comparingInt(Student::getId);
+            case "Full Name" -> comparator = Comparator.comparing(Student::getFullName);
+            case "Age" -> comparator = Comparator.comparingInt(Student::getAge);
+            case "Phone" -> comparator = Comparator.comparing(Student::getPhoneNumber);
+            case "Email" -> comparator = Comparator.comparing(Student::getEmail);
+            case "Address" -> comparator = Comparator.comparing(Student::getAddress);
+        };
+        data.sort(comparator);
+        update();
     }
 
     private boolean checkFieldAlert(){

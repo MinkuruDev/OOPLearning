@@ -3,6 +3,7 @@ package SV24.NguyenTrungVinh.GHP.UI;
 import SV24.NguyenTrungVinh.GHP.Data.DataChecker;
 import SV24.NguyenTrungVinh.GHP.Data.DataViewer;
 import SV24.NguyenTrungVinh.GHP.Data.DataWriter;
+import SV24.NguyenTrungVinh.GHP.Obj.Course;
 import SV24.NguyenTrungVinh.GHP.Obj.Exam;
 import SV24.NguyenTrungVinh.GHP.Obj.FunctionalInterfaces;
 import SV24.NguyenTrungVinh.GHP.XmlElement.Exams;
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class ExamForm {
     private JTextField nameField;
@@ -95,6 +97,20 @@ public class ExamForm {
             DataChecker.clearTextInside(searchName, searchCert, lowerDate, lowerDuration,
                     upperDate, upperDuration, lowerPrice, upperPrice);
         });
+    }
+
+    public void sortByColumn(int col){
+        Comparator<Exam> comparator = null;
+        // "Exam Name", "Certificate Name", "Exam Time", "Duration (minutes)", "Price"
+        switch (DataViewer.examProps[col]){
+            case "Exam Name" -> comparator = Comparator.comparing(Exam::getExamName);
+            case "Certificate Name" -> comparator = Comparator.comparing(Exam::getCertificateName);
+            case "Exam Time" -> comparator = Comparator.comparing(Exam::getExamDateTime);
+            case "Duration (minutes)" -> comparator = Comparator.comparingInt(Exam::getDurationInMinutes);
+            case "Price" -> comparator = Comparator.comparingLong(Exam::getPrice);
+        };
+        data.sort(comparator);
+        update();
     }
 
     private boolean checkFieldAlert(){

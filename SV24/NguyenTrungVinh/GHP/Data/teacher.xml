@@ -22,10 +22,10 @@
         <yearExp>0</yearExp>
     </teacher>
     <teacher>
-        <address>Somewhere</address>
+        <address>Rhodes Island</address>
         <age>18</age>
         <email>someone@example.com</email>
-        <fullName>teacher</fullName>
+        <fullName>Gnosis</fullName>
         <phoneNumber>1254673</phoneNumber>
         <id>3</id>
         <salary>12000000</salary>

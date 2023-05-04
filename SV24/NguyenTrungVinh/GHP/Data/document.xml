@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <documents>
     <document>
+        <author>Silver Ash</author>
+        <pageNumber>150</pageNumber>
+        <price>50000</price>
+        <publishYear>2019</publishYear>
+        <title>Solution</title>
+    </document>
+    <document>
         <author>Someone</author>
         <pageNumber>314</pageNumber>
         <price>450000</price>
@@ -13,12 +20,5 @@
         <price>200000</price>
         <publishYear>2023</publishYear>
         <title>Vstep B2</title>
-    </document>
-    <document>
-        <author>Silver Ash</author>
-        <pageNumber>150</pageNumber>
-        <price>50000</price>
-        <publishYear>2019</publishYear>
-        <title>Solution</title>
     </document>
 </documents>

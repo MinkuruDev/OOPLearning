@@ -3,6 +3,7 @@ package SV24.NguyenTrungVinh.GHP.UI;
 import SV24.NguyenTrungVinh.GHP.Data.DataChecker;
 import SV24.NguyenTrungVinh.GHP.Data.DataViewer;
 import SV24.NguyenTrungVinh.GHP.Data.DataWriter;
+import SV24.NguyenTrungVinh.GHP.Obj.Course;
 import SV24.NguyenTrungVinh.GHP.Obj.Document;
 import SV24.NguyenTrungVinh.GHP.Obj.FunctionalInterfaces;
 import SV24.NguyenTrungVinh.GHP.XmlElement.Documents;
@@ -10,6 +11,7 @@ import SV24.NguyenTrungVinh.GHP.XmlElement.Exams;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class DocumentForm {
     private JButton clearButton;
@@ -91,6 +93,20 @@ public class DocumentForm {
             data = Documents.getInstance().getDocuments();
             dataHasChanged();
         });
+    }
+
+    public void sortByColumn(int col){
+        Comparator<Document> comparator = null;
+        // "Title", "Author", "Publish Year", "Page Number", "Price"
+        switch (DataViewer.documentProps[col]){
+            case "Title" -> comparator = Comparator.comparing(Document::getTitle);
+            case "Author" -> comparator = Comparator.comparing(Document::getAuthor);
+            case "Publish Year" -> comparator = Comparator.comparingInt(Document::getPublishYear);
+            case "Page Number" -> comparator = Comparator.comparingInt(Document::getPageNumber);
+            case "Price" -> comparator = Comparator.comparingLong(Document::getPrice);
+        };
+        data.sort(comparator);
+        update();
     }
 
     private void dataHasChanged(){
